@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahsulotlar — Glass Trade Company</title>
+  <meta name="description" content="Glass Trade Company mahsulotlari: Eron ishlab chiqarilgan уголок, двутавр, швеллер, полоса. Premium sifat va narxlar." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --black: #000000;
+      --gold: #FFD700;
+      --white: #FFFFFF;
+      --dark-gray: #1a1a1a;
+      --light-gray: #f8f8f8;
+      --gold-hover: #FFED4E;
+      --gold-transparent: rgba(255, 215, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      color: var(--black);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* Responsive Images */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--dark-gray);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .gold-text {
+      color: var(--gold) !important;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .header.scrolled {
+      background: rgba(0, 0, 0, 0.95);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      color: var(--gold-hover);
+      transform: scale(1.05);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: var(--gold);
+    }
+
+    .nav-link.active {
+      color: var(--gold);
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), 
+                  url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255,215,0,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .products {
+      padding: 5rem 0;
+      background: var(--light-gray);
+    }
+
+    .products-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+      position: relative;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 20px;
+      background: linear-gradient(45deg, var(--gold-transparent) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .product-card:hover::before {
+      opacity: 1;
+    }
+
+    .product-card:hover {
+      transform: translateY(-15px);
+      border-color: var(--gold);
+      box-shadow: 0 25px 60px rgba(255, 215, 0, 0.2);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+
+    .product-content {
+      padding: 2rem;
+    }
+
+    .product-category {
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--black);
+    }
+
+    .product-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--dark-gray);
+    }
+
+    .spec-icon {
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+
+    .product-price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .product-description {
+      color: var(--dark-gray);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--black);
+      border: 2px solid var(--gold);
+      flex: 1;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+      transform: translateY(-2px);
+    }
+
+
+
+    .category-filter {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.8rem 1.5rem;
+      background: var(--white);
+      border: 2px solid var(--gold);
+      color: var(--black);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+    }
+
+    .cta {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .cta-title {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--gold);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      color: var(--black);
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--gold-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border-top: 1px solid rgba(255, 215, 0, 0.2);
+        z-index: 1001;
+      }
+
+      .nav-menu.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero-content {
+        padding: 0 1rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+      }
+
+      .category-filter {
+        padding: 0 1rem;
+      }
+
+      .header .container {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+      }
+
+      .product-actions {
+        flex-direction: column;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .header .container {
+        padding: 1rem;
+      }
+      
+      .hero-content {
+        padding: 0 2rem;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1rem;
+      }
+      
+      .category-filter {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0 1rem;
+      }
+      
+      .filter-btn {
+        min-height: 44px;
+        padding: 0.8rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header .container {
+        padding: 0.8rem 1rem;
+      }
+      
+      .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border-top: 1px solid rgba(255, 215, 0, 0.2);
+      }
+      
+      .nav-menu.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-content {
+        padding: 0 1rem;
+        text-align: center;
+      }
+      
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
+      }
+      
+      .category-filter {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1rem;
+      }
+      
+      .filter-btn {
+        width: 100%;
+        max-width: 200px;
+        min-height: 44px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header .container {
+        padding: 0.5rem 1rem;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .hero-content {
+        padding: 0 0.5rem;
+      }
+      
+      .hero-title {
+        font-size: clamp(2.5rem, 6vw, 3rem);
+      }
+      
+      .section-title {
+        font-size: clamp(2rem, 5vw, 2.5rem);
+      }
+      
+      .products-grid {
+        padding: 0 0.5rem;
+      }
+      
+      .category-filter {
+        padding: 0 0.5rem;
+      }
+      
+      .filter-btn {
+        min-height: 44px;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-building"></i> Glass Trade
+      </a>
+      
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Bosh sahifa</a></li>
+          <li><a href="about.html" class="nav-link">Biz haqimizda</a></li>
+          <li><a href="products.html" class="nav-link active">Mahsulotlar</a></li>
+          <li><a href="contact.html" class="nav-link">Aloqa</a></li>
+        </ul>
+  </nav>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title fade-in">Bizning Mahsulotlarimiz</h1>
+              <p class="subtitle fade-in gold-text">Eron ishlab chiqargan temir va armatura mahsulotlari</p>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products">
+    <div class="products-header">
+      <h2 class="section-title fade-in">Premium Mahsulotlar</h2>
+      <p class="subtitle fade-in">Eng yaxshi sifat va narxlarda</p>
+  </div>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+      <button class="filter-btn active" data-category="all">Hammasi</button>
+              <button class="filter-btn" data-category="burchak">Уголок</button>
+      <button class="filter-btn" data-category="dvuutavr">Двутавр</button>
+      <button class="filter-btn" data-category="shveller">Швеллер</button>
+      <button class="filter-btn" data-category="polosa">Полоса</button>
+      </div>
+      
+    <!-- Products Grid -->
+    <div class="products-grid" id="productsGrid">
+      <!-- Products will be dynamically generated here -->
+        </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="cta-content">
+      <h2 class="section-title fade-in">Maxsus takliflar kerakmi?</h2>
+      <p class="cta-text fade-in">
+        Katta hajmdagi buyurtmalar uchun maxsus narxlar va shartlar
+      </p>
+      <a href="contact.html" class="btn btn-primary fade-in">Bog'laning</a>
+          </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Glass Trade Company</h3>
+        <p class="gold-text">Eron ishlab chiqargan temir va armatura mahsulotlari</p>
+        <p>5 yillik tajriba, 1000+ doimiy mijoz</p>
+        </div>
+      
+      <div class="footer-section">
+        <h3>Aloqa ma'lumotlari</h3>
+        <a href="tel:+998907448080">📞 +998 90 744 80 80</a>
+        <a href="tel:+998337177179">📞 +998 33 717 71 79</a>
+        <p>📍 Buxoro shahar</p>
+          </div>
+      
+      
+        </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 Glass Trade Company. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Products data
+    const products = [
+      { 
+        id: 1, 
+        category: "burchak", 
+        categoryName: "Уголок", 
+        name: "Уголок 50/4", 
+        origin: "Eron", 
+        meterPerTon: "350", 
+        lengthM: "12", 
+        price: 720,
+        description: "L-shaklidagi burchak profillari, qurilish va ishlab chiqarishda keng qo'llaniladi",
+        image: "images/ugolok.jpeg"
+      },
+      { 
+        id: 2, 
+        category: "burchak", 
+        categoryName: "Уголок", 
+        name: "Уголок 50/5", 
+        origin: "Eron", 
+        meterPerTon: "288", 
+        lengthM: "12", 
+        price: 720,
+        description: "Yuqori sifatli burchak profillari, mustahkamlik va chidamlilik bilan ajralib turadi",
+        image: "images/ugolok.jpeg"
+      },
+      { 
+        id: 3, 
+        category: "burchak", 
+        categoryName: "Уголок", 
+        name: "Уголок 60/4", 
+        origin: "Eron", 
+        meterPerTon: "276", 
+        lengthM: "12", 
+        price: 720,
+        description: "Katta o'lchamdagi burchak profillari, yirik loyihalar uchun ideal",
+        image: "images/ugolok.jpeg"
+      },
+      { 
+        id: 4, 
+        category: "burchak", 
+        categoryName: "Уголок", 
+        name: "Уголок 60/5", 
+        origin: "Eron", 
+        meterPerTon: "226", 
+        lengthM: "12", 
+        price: 720,
+        description: "Qalin devorli burchak profillari, yuqori yuklarni ko'tarish uchun",
+        image: "images/ugolok.jpeg"
+      },
+      { 
+        id: 5, 
+        category: "dvuutavr", 
+        categoryName: "Двутавр", 
+        name: "Двутавр 14", 
+        origin: "Eron", 
+        meterPerTon: "78", 
+        lengthM: "12", 
+        price: 900,
+        description: "I-shaklidagi profillar, qurilish va muhandislik ishlarida keng qo'llaniladi",
+        image: "images/c.jpeg"
+      },
+      { 
+        id: 6, 
+        category: "dvuutavr", 
+        categoryName: "Двутавр", 
+        name: "Двутавр 16", 
+        origin: "Eron", 
+        meterPerTon: "70", 
+        lengthM: "12", 
+        price: 900,
+        description: "Mustahkam va chidamli profillar, og'ir yuklarni ko'tarish uchun",
+        image: "images/c.jpeg"
+      },
+      { 
+        id: 7, 
+        category: "dvuutavr", 
+        categoryName: "Двутавр", 
+        name: "Двутавр 18", 
+        origin: "Eron", 
+        meterPerTon: "56", 
+        lengthM: "12", 
+        price: 900,
+        description: "Yuqori sifatli I-profillar, professional qurilish ishlarida",
+        image: "images/c.jpeg"
+      },
+      { 
+        id: 8, 
+        category: "dvuutavr", 
+        categoryName: "Двутавр", 
+        name: "Двутавр 20", 
+        origin: "Eron", 
+        meterPerTon: "49", 
+        lengthM: "12", 
+        price: 900,
+        description: "Katta o'lchamdagi I-profillar, yirik sanoat loyihalarida",
+        image: "images/c.jpeg"
+      },
+      { 
+        id: 9, 
+        category: "dvuutavr", 
+        categoryName: "Двутавр", 
+        name: "Двутавр 22", 
+        origin: "Eron", 
+        meterPerTon: "37", 
+        lengthM: "12", 
+        price: 900,
+        description: "Qalin devorli I-profillar, ekstremal sharoitlarda ishlash uchun",
+        image: "images/c.jpeg"
+      },
+      { 
+        id: 10, 
+        category: "dvuutavr", 
+        categoryName: "Двутавр", 
+        name: "Двутавр 24", 
+        origin: "Eron", 
+        meterPerTon: "33", 
+        lengthM: "12", 
+        price: 900,
+        description: "Yuqori mustahkamlikka ega I-profillar, muhim loyihalarda",
+        image: "images/c.jpeg"
+      },
+      { 
+        id: 11, 
+        category: "dvuutavr", 
+        categoryName: "Двутавр", 
+        name: "Двутавр 27", 
+        origin: "Eron", 
+        meterPerTon: "27", 
+        lengthM: "12", 
+        price: 950,
+        description: "Maxsus I-profillar, yuqori texnik talablar uchun",
+        image: "images/c.jpeg"
+      },
+      { 
+        id: 12, 
+        category: "dvuutavr", 
+        categoryName: "Двутавр", 
+        name: "Двутавр 30", 
+        origin: "Eron", 
+        meterPerTon: "24", 
+        lengthM: "12", 
+        price: 950,
+        description: "Eng katta o'lchamdagi I-profillar, maxsus loyihalar uchun",
+        image: "images/c.jpeg"
+      },
+      { 
+        id: 13, 
+        category: "shveller", 
+        categoryName: "Швеллер", 
+        name: "Швеллер 6", 
+        origin: "Eron", 
+        meterPerTon: "266", 
+        lengthM: "6", 
+        price: 790,
+        description: "U-shaklidagi kanal profillari, qurilish va dekorativ ishlarda",
+        image: "images/shveller.jpeg"
+      },
+      { 
+        id: 14, 
+        category: "shveller", 
+        categoryName: "Швеллер", 
+        name: "Швеллер 8", 
+        origin: "Eron", 
+        meterPerTon: "207", 
+        lengthM: "12", 
+        price: 800,
+        description: "Mustahkam kanal profillari, yuk ko'tarish va tayanch elementlari uchun",
+        image: "images/shveller.jpeg"
+      },
+      { 
+        id: 15, 
+        category: "shveller", 
+        categoryName: "Швеллер", 
+        name: "Швеллер 12", 
+        origin: "Eron", 
+        meterPerTon: "97", 
+        lengthM: "12", 
+        price: 790,
+        description: "Yuqori sifatli kanal profillari, professional qurilish ishlarida",
+        image: "images/shveller.jpeg"
+      },
+      { 
+        id: 16, 
+        category: "shveller", 
+        categoryName: "Швеллер", 
+        name: "Швеллер 14", 
+        origin: "Eron", 
+        meterPerTon: "83", 
+        lengthM: "12", 
+        price: 790,
+        description: "Katta o'lchamdagi kanal profillari, yirik loyihalarda",
+        image: "images/shveller.jpeg"
+      },
+      { 
+        id: 17, 
+        category: "shveller", 
+        categoryName: "Швеллер", 
+        name: "Швеллер 18", 
+        origin: "Eron", 
+        meterPerTon: "62", 
+        lengthM: "12", 
+        price: 870,
+        description: "Qalin devorli kanal profillari, og'ir yuklarni ko'tarish uchun",
+        image: "images/shveller.jpeg"
+      },
+      { 
+        id: 18, 
+        category: "shveller", 
+        categoryName: "Швеллер", 
+        name: "Швеллер 22", 
+        origin: "Eron", 
+        meterPerTon: "48", 
+        lengthM: "12", 
+        price: 1100,
+        description: "Maxsus kanal profillari, ekstremal sharoitlarda ishlash uchun",
+        image: "images/shveller.jpeg"
+      },
+      { 
+        id: 19, 
+        category: "shveller", 
+        categoryName: "Швеллер", 
+        name: "Швеллер 24", 
+        origin: "Eron", 
+        meterPerTon: "41", 
+        lengthM: "12", 
+        price: 1100,
+        description: "Eng katta o'lchamdagi kanal profillari, maxsus loyihalar uchun",
+        image: "images/shveller.jpeg"
+      },
+      { 
+        id: 20, 
+        category: "polosa", 
+        categoryName: "Полоса", 
+        name: "Полоса 30/3", 
+        origin: "Eron", 
+        meterPerTon: "1455", 
+        lengthM: "6", 
+        price: 810,
+        description: "Tekis metall plitalar, qurilish va ishlab chiqarishda keng qo'llaniladi",
+        image: "images/polosa.jpg"
+      },
+      { 
+        id: 21, 
+        category: "polosa", 
+        categoryName: "Полоса", 
+        name: "Полоса 40/3", 
+        origin: "Eron", 
+        meterPerTon: "1000", 
+        lengthM: "6", 
+        price: 810,
+        description: "Yuqori sifatli metall plitalar, mustahkamlik va chidamlilik bilan",
+        image: "images/polosa.jpg"
+      }
+    ];
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Render products
+    function renderProducts(filteredProducts = products) {
+      const productsGrid = document.getElementById('productsGrid');
+      productsGrid.innerHTML = '';
+
+      filteredProducts.forEach((product, index) => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card fade-in';
+        productCard.style.animationDelay = `${index * 100}ms`;
+
+        productCard.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" class="product-image">
+          <div class="product-content">
+            <div class="product-category">${product.categoryName}</div>
+            <h3 class="product-title">${product.name}</h3>
+            
+            <div class="product-specs">
+              <div class="spec-item">
+                <i class="fas fa-flag spec-icon"></i>
+                <span>${product.origin}</span>
+              </div>
+              <div class="spec-item">
+                <i class="fas fa-ruler-combined spec-icon"></i>
+                <span>${product.meterPerTon} m/t</span>
+              </div>
+              <div class="spec-item">
+                <i class="fas fa-arrows-alt-h spec-icon"></i>
+                <span>${product.lengthM} m</span>
+              </div>
+              <div class="spec-item">
+                <i class="fas fa-weight-hanging spec-icon"></i>
+                <span>Yuqori sifat</span>
+              </div>
+            </div>
+            
+            <div class="product-price">$${product.price}</div>
+            <p class="product-description">${product.description}</p>
+            
+            <div class="product-actions">
+              <button class="btn btn-primary" onclick="addToCart(${product.id})">
+                <i class="fas fa-shopping-cart"></i> Savatga
+              </button>
+              <button class="btn btn-outline" onclick="showProductDetails(${product.id})">
+                <i class="fas fa-info-circle"></i> Batafsil
+              </button>
+            </div>
+            
+
+          </div>
+        `;
+
+        productsGrid.appendChild(productCard);
+      });
+
+      // Trigger animations
+      setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+          el.classList.add('show');
+        });
+      }, 100);
+    }
+
+    // Category filter
+    function initCategoryFilter() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active class from all buttons
+          filterBtns.forEach(b => b.classList.remove('active'));
+          // Add active class to clicked button
+          btn.classList.add('active');
+          
+          const category = btn.getAttribute('data-category');
+          let filteredProducts;
+          
+          if (category === 'all') {
+            filteredProducts = products;
+          } else {
+            filteredProducts = products.filter(p => p.category === category);
+          }
+          
+          renderProducts(filteredProducts);
+        });
+      });
+    }
+
+    // Cart functionality
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (product) {
+        // Show notification
+      showNotification(`${product.name} savatga qo'shildi!`);
+        
+        // Here you can implement actual cart functionality
+        console.log('Added to cart:', product);
+      }
+    }
+
+    // Product details
+    function showProductDetails(productId) {
+      const product = products.find(p => p.id === productId);
+      if (product) {
+        alert(`${product.name}\n\nNarxi: $${product.price}\nKelib chiqishi: ${product.origin}\nMetraj: ${product.meterPerTon} m/t\nUzunlik: ${product.lengthM} m\n\n${product.description}`);
+      }
+    }
+
+    // Notification
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = 'notification';
+      notification.textContent = message;
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--gold);
+        color: var(--black);
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+      `;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.remove();
+      }, 3000);
+    }
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.querySelector('.nav-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+    renderProducts();
+      initCategoryFilter();
+    });
+  </script>
+</body>
+</html>
