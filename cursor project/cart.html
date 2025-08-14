@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Savat — Glass Trade Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --black: #000; --gold: #FFD700; --white: #fff; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Montserrat, Arial, sans-serif; background: #fff; color: #000; }
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(0,0,0,.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,215,0,.2); }
+    .header .container { max-width: 1200px; margin: 0 auto; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
+    .logo { color: var(--gold); text-decoration: none; font-family: 'Playfair Display', serif; font-weight: 800; }
+    .header-right { display: flex; gap: .75rem; align-items: center; }
+    .cart-btn { background: none; border: none; color: #fff; font-size: 1.35rem; cursor: pointer; }
+    main { max-width: 1200px; margin: 0 auto; padding: 7rem 1rem 3rem; }
+    h1 { font-family: 'Playfair Display', serif; margin-bottom: 1rem; }
+    .cart-wrap { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+    .card { border: 1px solid #eee; border-radius: 12px; padding: 1rem; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+    .cart-item { display: grid; grid-template-columns: 1fr 90px 90px 32px; gap: .75rem; align-items: center; padding: .5rem 0; border-bottom: 1px solid #f2f2f2; }
+    .cart-item:last-child { border-bottom: none; }
+    .muted { color: #666; }
+    .qty { display: flex; align-items: center; gap: .5rem; }
+    .qty button { width: 28px; height: 28px; border-radius: 6px; border: 1px solid #ddd; background: #fafafa; cursor: pointer; }
+    .total { font-weight: 800; }
+    .summary-line { display: flex; justify-content: space-between; margin: .5rem 0; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .9rem 1.2rem; border-radius: 999px; border: none; cursor: pointer; font-weight: 700; }
+    .btn-primary { background: var(--gold); color: #000; box-shadow: 0 10px 25px rgba(255,215,0,.3); }
+    .btn-outline { background: #fff; border: 2px solid #000; }
+    form.checkout { display: grid; gap: .75rem; margin-top: 1rem; }
+    input, textarea { width: 100%; padding: .85rem 1rem; border: 1px solid #ddd; border-radius: 10px; font: inherit; }
+    @media (max-width: 900px) { .cart-wrap { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo"><i class="fas fa-building"></i> Glass Trade</a>
+      <div class="header-right">
+        <button class="cart-btn" id="backToProducts" title="Mahsulotlarga qaytish"><i class="fas fa-arrow-left"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Savat</h1>
+    <div class="cart-wrap">
+      <section class="card">
+        <div id="cartItems"></div>
+      </section>
+      <aside class="card">
+        <h3>Buyurtma ma'lumotlari</h3>
+        <div class="summary-line"><span>Jami:</span><strong id="sumTotal">$0</strong></div>
+        <form class="checkout" id="checkoutForm">
+          <input type="text" id="fullName" placeholder="Ism familiya" required>
+          <input type="tel" id="phone" placeholder="Telefon (+998..)" required>
+          <textarea id="comment" placeholder="Izoh (ixtiyoriy)" rows="3"></textarea>
+          <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i> Buyurtma berish</button>
+          <button class="btn btn-outline" type="button" id="clearCart">Savatni tozalash</button>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const TELEGRAM_BOT_TOKEN = '8338457339:AAG8j2z-cQVzW5eItuW184UmheggQCh9h30';
+    const TELEGRAM_CHAT_ID = '1662805735';
+
+    document.getElementById('backToProducts').addEventListener('click', () => window.location.href = 'products.html');
+
+    function getCart() { try { return JSON.parse(localStorage.getItem('cart')||'[]'); } catch { return []; } }
+    function saveCart(d){ localStorage.setItem('cart', JSON.stringify(d)); }
+
+    const listEl = document.getElementById('cartItems');
+    const sumEl = document.getElementById('sumTotal');
+
+    function render(){
+      const cart = getCart();
+      listEl.innerHTML = '';
+      if(cart.length === 0){ listEl.innerHTML = '<p class="muted">Savat bo\'sh.</p>'; sumEl.textContent = '$0'; return; }
+      let total = 0;
+      cart.forEach((it,idx)=>{
+        total += it.price * it.qty;
+        const row = document.createElement('div');
+        row.className = 'cart-item';
+        row.innerHTML = `<div><strong>${it.name}</strong><div class="muted">$${it.price}</div></div>
+                         <div class="qty"><button data-a='dec' data-i='${idx}'>-</button><span>${it.qty}</span><button data-a='inc' data-i='${idx}'>+</button></div>
+                         <div class="total">$${(it.price*it.qty).toFixed(2)}</div>
+                         <button data-a='del' data-i='${idx}' title='O\'chirish' style='border:none;background:none;cursor:pointer'>&times;</button>`;
+        listEl.appendChild(row);
+      });
+      sumEl.textContent = '$' + total.toFixed(2);
+    }
+
+    listEl.addEventListener('click', (e)=>{
+      const a = e.target.getAttribute('data-a');
+      if(!a) return;
+      const i = +e.target.getAttribute('data-i');
+      const cart = getCart();
+      if(a==='inc') cart[i].qty += 1;
+      if(a==='dec') cart[i].qty = Math.max(1, cart[i].qty - 1);
+      if(a==='del') cart.splice(i,1);
+      saveCart(cart); render();
+    });
+
+    document.getElementById('clearCart').addEventListener('click', ()=>{ saveCart([]); render(); });
+
+    async function sendTelegram(text){
+      if(!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID){
+        alert("Telegram chat_id o'rnatilmagan. Iltimos, kodda TELEGRAM_CHAT_ID qiymatini kiriting.");
+        return { ok:false };
+      }
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+      const res = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text, parse_mode:'HTML' }) });
+      return res.json();
+    }
+
+    document.getElementById('checkoutForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const comment = document.getElementById('comment').value.trim();
+      const cart = getCart();
+      if(cart.length === 0){ alert("Savat bo'sh."); return; }
+      let lines = cart.map(it=>`• ${it.name} × ${it.qty} = $${(it.qty*it.price).toFixed(2)}`).join('\n');
+      const total = cart.reduce((s,i)=>s+i.qty*i.price,0);
+      const text = `<b>Yangi buyurtma</b>\n\n<b>Mijoz:</b> ${name}\n<b>Tel:</b> ${phone}\n${comment?`<b>Izoh:</b> ${comment}\n`:''}\n<b>Mahsulotlar:</b>\n${lines}\n\n<b>Jami:</b> $${total.toFixed(2)}`;
+      try{
+        const r = await sendTelegram(text);
+        if(r && r.ok){
+          alert("Buyurtma yuborildi! Tez orada siz bilan bog'lanamiz.");
+          saveCart([]); render(); e.target.reset();
+        } else {
+          alert('Telegramga yuborishda xatolik. Iltimos, qayta urinib ko\'ring.');
+        }
+      }catch(err){ alert('Xatolik: '+ err.message); }
+    });
+
+    render();
+  </script>
+</body>
+</html>

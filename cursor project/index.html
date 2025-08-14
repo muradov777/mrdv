@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GLASS TRADE COMPANY — Sifat narxdan ustun</title>
+  <meta name="description" content="Glass Trade Company: Eron ishlab chiqarilgan sifatli temir va armatura. Premium xizmat, 5 yillik tajriba, 1000+ doimiy mijoz." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* CSS Variables */
+    :root {
+      --black: #000000;
+      --gold: #FFD700;
+      --white: #FFFFFF;
+      --dark-gray: #1a1a1a;
+      --light-gray: #f8f8f8;
+      --gold-hover: #FFED4E;
+      --gold-transparent: rgba(255, 215, 0, 0.1);
+      --header-height: 64px;
+    }
+
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      color: var(--black);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* Responsive Images */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--dark-gray);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .header.scrolled {
+      background: rgba(0, 0, 0, 0.95);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      color: var(--gold-hover);
+      transform: scale(1.05);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: var(--gold);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .cart-btn {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: relative;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .cart-btn:hover {
+      background: rgba(255, 215, 0, 0.1);
+      color: var(--gold);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.4rem;
+      border-radius: 10px;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 80vh;
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%), 
+                  url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: var(--header-height);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255,215,0,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text {
+      max-width: 600px;
+      color: var(--white);
+      width: 100%;
+    }
+
+    .hero-subtitle {
+      color: var(--gold);
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.8;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--black);
+      transform: translateY(-3px);
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .contact-buttons .btn {
+      width: auto;
+      min-width: 250px;
+    }
+
+    /* Stats Section */
+    .stats {
+      padding: 5rem 0;
+      background: var(--light-gray);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .stat-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: var(--dark-gray);
+      font-weight: 500;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 5rem 0;
+      background: var(--white);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .text-center {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 2.5rem;
+      background: var(--light-gray);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .feature-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      color: var(--black);
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--black);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .feature-text {
+      color: var(--dark-gray);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .header .container {
+        padding: 1rem;
+      }
+      
+      .hero-content {
+        padding: 0 2rem;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header .container { padding: 0.8rem 1rem; }
+
+      /* Top dropdown menu (copied from about page) */
+      .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: 0; right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        display: flex; flex-direction: column; gap: 1.5rem;
+        padding: 2rem;
+        transform: translateY(-100%);
+        opacity: 0; visibility: hidden;
+        transition: all 0.3s ease;
+        border-top: 1px solid rgba(255, 215, 0, 0.2);
+        z-index: 1001;
+      }
+      .nav-menu.show { transform: translateY(0); opacity: 1; visibility: visible; }
+      .mobile-menu-btn { display: block; z-index: 1004; }
+
+      .hero { min-height: 70vh; padding-top: calc(var(--header-height) + 2rem); }
+      .hero-content { padding: 0 1rem; text-align: center; }
+      .hero-title { font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 1rem; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; }
+      .hero-subtitle { font-size: 1.2rem; margin-bottom: 1.5rem; }
+      .hero-description { font-size: 1rem; margin-bottom: 2rem; line-height: 1.6; }
+      .hero-buttons { flex-direction: column; gap: 1rem; align-items: center; }
+      .btn-outline { margin-left: 0; }
+      .stats-grid { grid-template-columns: 1fr; gap: 1rem; padding: 0 1rem; }
+      .features-grid { grid-template-columns: 1fr; gap: 1.5rem; padding: 0 1rem; }
+      .contact-buttons { flex-direction: column; gap: 1rem; }
+      .contact-buttons .btn { min-width: 200px; }
+    }
+
+    @media (max-width: 480px) {
+      .header .container {
+        padding: 0.5rem 1rem;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .hero {
+        min-height: 65vh;
+        padding-top: calc(var(--header-height) + 1rem);
+      }
+      
+      .hero-content {
+        padding: 0 0.5rem;
+        max-width: 100%;
+        overflow-wrap: break-word;
+      }
+      
+      .hero-title {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        margin-bottom: 0.8rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.1;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      .hero-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+      
+      .section-title {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+      }
+      
+      .stats-grid {
+        padding: 0 0.5rem;
+        gap: 0.8rem;
+      }
+      
+      .features-grid {
+        padding: 0 0.5rem;
+        gap: 1.2rem;
+      }
+      
+      .contact-buttons .btn {
+        min-width: 180px;
+        padding: 0.8rem 1.5rem;
+      }
+    }
+
+    /* Cart Drawer & Overlay */
+    .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.45); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .25s ease, visibility .25s ease; z-index: 9999; }
+    .cart-overlay.open { opacity: 1; visibility: visible; pointer-events: auto; }
+    .cart-drawer {
+      position: fixed; top: 0; right: 0; height: 100vh; width: 300px; max-width: 100%;
+      background: var(--white); box-shadow: -8px 0 24px rgba(0,0,0,.25);
+      transform: translateX(100%);
+      transition: transform .3s ease;
+      z-index: 9999; display: block;
+      display: flex; flex-direction: column;
+    }
+    .cart-drawer.open { transform: translateX(0); }
+    .cart-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1rem; border-bottom: 1px solid #eee; position: sticky; top: 0; background: var(--white); z-index: 1; }
+    .cart-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.25rem; }
+    .cart-close { background: none; border: 2px solid var(--black); border-radius: 8px; padding: 0.25rem 0.5rem; font-weight: 700; cursor: pointer; }
+    .cart-items { flex: 1; overflow-y: auto; padding: 1rem; }
+    .cart-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; padding: 0.75rem 0; border-bottom: 1px solid #eee; }
+    .cart-total { padding: 1rem; border-top: 1px solid #eee; font-weight: 700; }
+    .cart-actions { padding: 1rem; }
+    @media (max-width: 768px) { .cart-drawer { width: 100%; right: 0; left: 0; } }
+
+    /* Extra small mobile devices */
+    @media (max-width: 360px) {
+      .hero-title {
+        font-size: clamp(1.6rem, 6vw, 2rem);
+        line-height: 1.1;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+      
+      .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      .hero-content {
+        padding: 0 0.3rem;
+      }
+      
+      .header .container {
+        padding: 0.4rem 0.8rem;
+      }
+      
+      .logo {
+        font-size: 1.3rem;
+      }
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--gold);
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+      transform: translateY(-3px);
+    }
+
+    /* Stats Section */
+    .stats {
+      padding: 5rem 0;
+      background: var(--light-gray);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: var(--dark-gray);
+      font-weight: 600;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 5rem 0;
+      background: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .feature-card:hover::before {
+      left: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 25px 60px rgba(255, 215, 0, 0.15);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--black);
+    }
+
+    .feature-text {
+      color: var(--dark-gray);
+      line-height: 1.7;
+    }
+
+    /* CTA Section */
+    .cta {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .cta-title {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--gold);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      color: var(--black);
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--gold-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease;
+    }
+
+    .slide-in-left.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease;
+    }
+
+    .slide-in-right.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero-content {
+        padding: 0 1rem;
+        text-align: center;
+        max-width: 100%;
+        overflow-wrap: break-word;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 1rem;
+        display: block;
+        width: 100%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+      }
+
+      .header .container {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-building"></i> Glass Trade
+      </a>
+      
+      <nav>
+        <ul class="nav-menu" id="primaryNav">
+          <li><a href="index.html" class="nav-link active">Bosh sahifa</a></li>
+          <li><a href="about.html" class="nav-link">Biz haqimizda</a></li>
+          <li><a href="products.html" class="nav-link">Mahsulotlar</a></li>
+          <li><a href="contact.html" class="nav-link">Aloqa</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <button class="cart-btn" id="cartBtn" aria-label="Savat">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- overlay for mobile menu -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+  
+  <!-- Cart Drawer -->
+  <div id="cartOverlay" class="cart-overlay" aria-hidden="true"></div>
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <div class="cart-title">Savat</div>
+      <button id="cartClose" class="cart-close" aria-label="Yopish">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-total">Jami: $<span id="cartTotal">0</span></div>
+    <div class="cart-actions">
+      <a href="tel:+998907448080" class="btn btn-primary" style="width:100%"><i class="fas fa-phone"></i> Buyurtma berish</a>
+    </div>
+  </aside>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title fade-in">GLASS TRADE COMPANY</h1>
+        <p class="hero-subtitle slide-in-left">Sifat narxdan ustun</p>
+        <p class="hero-subtitle slide-in-left">Eron ishlab chiqargan sifatli temir mahsulotlari</p>
+        <p class="hero-description slide-in-right">
+          5 yillik tajriba, 1000+ doimiy mijoz. Biz sizga eng yaxshi sifat va xizmatni taqdim etamiz.
+        </p>
+        <div class="hero-buttons">
+          <a href="products.html" class="btn btn-primary">Mahsulotlarni ko'rish</a>
+          <a href="contact.html" class="btn btn-outline">Biz bilan bog'laning</a>
+          </div>
+          </div>
+        </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-card fade-in">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Yillik tajriba</div>
+              </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">Doimiy mijoz</div>
+            </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Yirik loyiha</div>
+              </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Ish vaqti</div>
+            </div>
+              </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h2 class="section-title">Bizning afzalliklarimiz</h2>
+        <p class="subtitle">Nima uchun bizni tanlashingiz kerak</p>
+            </div>
+      
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-medal"></i>
+          </div>
+          <h3 class="feature-title">Yuqori sifat</h3>
+          <p class="feature-text">Eron ishlab chiqarilgan barcha mahsulotlar xalqaro standartlarga mos keladi</p>
+        </div>
+        
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-shipping-fast"></i>
+      </div>
+          <h3 class="feature-title">Tez yetkazib berish</h3>
+          <p class="feature-text">Mahsulotlarni tez va xavfsiz yetkazib beramiz, vaqtni tejaysiz</p>
+    </div>
+        
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="feature-title">Ishonchli hamkorlik</h3>
+          <p class="feature-text">Uzoq muddatli hamkorlik asosida ishlaymiz, ishonch va sifat kafolati</p>
+      </div>
+      
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+            </div>
+          <h3 class="feature-title">24/7 ish vaqti</h3>
+          <p class="feature-text">Kun bo'yi 24 soat xizmat ko'rsatamiz, dam olish kunlari yo'q</p>
+          </div>
+        
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-certificate"></i>
+        </div>
+          <h3 class="feature-title">Sertifikatlar</h3>
+          <p class="feature-text">Barcha mahsulotlar uchun to'liq sertifikat va kafolat</p>
+            </div>
+        
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="feature-title">Professional jamoa</h3>
+          <p class="feature-text">Ko'p yillik tajribaga ega mutaxassislar jamoasi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="cta-content">
+      <h2 class="section-title fade-in">Tayyormisiz hamkorlik qilishga?</h2>
+      <p class="cta-text fade-in">
+        Biz bilan bog'laning va sifatli mahsulotlar haqida batafsil ma'lumot oling
+      </p>
+      <div class="contact-buttons">
+        <a href="tel:+998907448080" class="btn btn-primary fade-in">
+          <i class="fas fa-phone"></i> +998 90 744 80 80
+        </a>
+        <a href="tel:+998337177179" class="btn btn-primary fade-in">
+          <i class="fas fa-phone"></i> +998 33 717 71 79
+        </a>
+        </div>
+          </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Glass Trade Company</h3>
+        <p>Eron ishlab chiqarilgan sifatli temir va armatura mahsulotlari</p>
+        <p>5 yillik tajriba, 1000+ doimiy mijoz</p>
+        </div>
+      
+      <div class="footer-section">
+        <h3>Aloqa ma'lumotlari</h3>
+        <a href="tel:+998907448080">📞 +998 90 744 80 80</a>
+        <a href="tel:+998337177179">📞 +998 33 717 71 79</a>
+        <p>📍 Buxoro shahar</p>
+      </div>
+      
+
+        </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 Glass Trade Company. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Cart functionality
+    let cart = [];
+    const cartBtn = document.getElementById('cartBtn');
+    const cartCount = document.getElementById('cartCount');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartItemsEl = document.getElementById('cartItems');
+    const cartTotalEl = document.getElementById('cartTotal');
+    const cartCloseBtn = document.getElementById('cartClose');
+
+    function getLS(){ try { return JSON.parse(localStorage.getItem('cart')||'[]'); } catch { return []; } }
+    function setLS(v){ localStorage.setItem('cart', JSON.stringify(v)); }
+    function updateCartBadge(){ const c = getLS(); cartCount.textContent = c.reduce((s,i)=>s+i.qty,0); }
+
+    cartBtn.addEventListener('click', ()=>{ window.location.href = 'cart.html'; });
+
+    // Cart event listeners
+    function closeCart(){ cartOverlay?.classList.remove('open'); cartDrawer?.classList.remove('open'); document.body.style.overflow = ''; }
+    cartOverlay.addEventListener('click', closeCart);
+    cartCloseBtn.addEventListener('click', closeCart);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCart(); });
+
+    // Mobile menu toggle (copied behavior from about page)
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.querySelector('.nav-menu');
+    function setHeaderHeight(){ const h = document.getElementById('header')?.offsetHeight || 64; document.documentElement.style.setProperty('--header-height', h + 'px'); }
+    setHeaderHeight(); window.addEventListener('resize', setHeaderHeight);
+
+    mobileMenuBtn.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('show')));
+
+    // Ensure menu closes when switching to desktop widths
+    const desktopMql = window.matchMedia('(min-width: 769px)');
+    function handleViewportChange(e){ if(e.matches) navMenu.classList.remove('show'); }
+    desktopMql.addEventListener ? desktopMql.addEventListener('change', handleViewportChange) : desktopMql.addListener(handleViewportChange);
+
+    // Close mobile menu when switching to desktop (duplicate-safe)
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    document.addEventListener('DOMContentLoaded', ()=>{ updateCartBadge(); });
+  </script>
+</body>
+</html>
